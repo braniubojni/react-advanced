@@ -1,14 +1,23 @@
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
+import { BuildOptions } from '../types/config';
 
-export function buildLoader(): webpack.RuleSetRule[] {
+export function buildLoader({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const styleLoader = {
     test: /\.s[ac]ss$/i,
     use: [
-      // Creates `style` nodes from JS strings
-      'style-loader',
-      // Translates CSS into CommonJS
-      'css-loader',
-      // Compiles Sass to CSS
+      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+      {
+        loader: 'css-loader',
+        options: {
+          modules: {
+            auto: (resPath: string) => resPath.indexOf('.module.') !== -1,
+            localIdentName: isDev
+              ? '[path][name]__[local]--[hash:base64:8]'
+              : '[hash:base64:8]',
+          },
+        },
+      },
       'sass-loader',
     ],
   };
