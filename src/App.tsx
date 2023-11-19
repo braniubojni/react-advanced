@@ -1,9 +1,8 @@
-import { lazy, useContext } from 'react'
+import { lazy } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import Counter from './components/Counter'
 import LazyLoad from './components/common/LazyLoad'
 import './styles/index.scss'
-import { Theme, ThemeContext } from './theme/ThemeContext'
 import { useTheme } from './theme/useTheme'
 
 const AboutPage = lazy(() => import('./Pages/AboutPage/AboutPage'));
@@ -17,17 +16,14 @@ const App = () => {
 			<button onClick={toggleTheme}>Toggle</button>
 			<Link to="/">Main</Link>
 			<Link to="/about">About</Link>
-			<Routes>
-				<Route path='/about' element={
-					<LazyLoad>
+			<LazyLoad>
+				<Routes>
+					<Route path='/about' element={
 						<AboutPage />
-					</LazyLoad>
-				} />
-				<Route path='/' element={
-					<LazyLoad>
-						<MainPage />
-					</LazyLoad>} />
-			</Routes>
+					} />
+					<Route path='/' element={<MainPage />} />
+				</Routes>
+			</LazyLoad>
 			<Counter />
 		</div>
 	)
