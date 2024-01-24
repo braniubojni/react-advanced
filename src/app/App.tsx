@@ -3,6 +3,7 @@ import { AppRouter } from "app/providers/router";
 import { classNames } from "shared/lib/helpers/classNames/classNames";
 import { Navbar } from "widgets/Navbar";
 import './styles/index.scss';
+import { Sidebar } from "widgets/Sidebar";
 
 
 
@@ -11,7 +12,10 @@ const App = () => {
 	return (
 		<div className={classNames('app', { hovered: true, selected: false }, [theme])}>
 			<Navbar />
-			<AppRouter />
+			<div className="content-page">
+				<Sidebar />
+				<AppRouter />
+			</div>
 		</div>
 	)
 }
