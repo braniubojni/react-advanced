@@ -5,7 +5,8 @@ import { FC } from "react"
 
 export enum AppLinkTheme {
 	PRIMARY = 'primary',
-	SECONDARY = 'secondary'
+	SECONDARY = 'secondary',
+	RED = 'red'
 }
 
 interface AppLinkProps extends LinkProps {
@@ -25,7 +26,7 @@ const AppLink: FC<AppLinkProps> = (props) => {
 	return (
 		<Link
 			to={to}
-			className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+			className={classNames(cls.AppLink, {[cls[theme]]: true}, [className])}
 			{...restProps}>
 			{children}
 		</Link>
