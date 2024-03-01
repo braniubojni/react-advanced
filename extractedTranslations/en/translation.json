@@ -4,5 +4,10 @@
   "Language": "Language",
   "Main": "Main",
   "Main page": "Main page",
-  "Page was not found": "Page was not found"
+  "Page was not found": "Page was not found",
+  "Refresh the page": "Refresh the page",
+  "Something went wrong": {
+    " Please try again later": " Please try again later"
+  },
+  "Something went wrong. Please try again later": "Something went wrong. Please try again later"
 }
