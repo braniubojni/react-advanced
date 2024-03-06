@@ -33,7 +33,9 @@ describe('classNames', () => {
         const cls = 'someClass';
         const clses = ['one', 'two', 'three'];
         const mods = { hovered: true, scrollable: false };
-        const expected = `${cls} ${clses.join(' ')} ${Object.keys(mods).filter((key) => key !== 'scrollable').join(' ')}`;
+        const expected = `${cls} ${clses.join(' ')} ${
+            Object.keys(mods).filter((key) => key !== 'scrollable').join(' ')
+        }`;
         expect(
             classNames(
                 cls,
@@ -48,7 +50,9 @@ describe('classNames', () => {
         const clses = ['one', 'two', 'three'];
         // @ts-ignore
         const mods = { hovered: true, scrollable: void 0 };
-        const expected = `${cls} ${clses.join(' ')} ${Object.keys(mods).filter((key) => key !== 'scrollable').join(' ')}`;
+        const expected = `${cls} ${clses.join(' ')} ${
+            Object.keys(mods).filter((key) => key !== 'scrollable').join(' ')
+        }`;
         expect(
             classNames(
                 cls,
