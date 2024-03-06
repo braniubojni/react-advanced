@@ -1,4 +1,4 @@
-import { ErrorBoundary } from 'app/providers/ErrorBoundery/indes';
+import { ErrorBoundary } from 'app/providers/ErrorBoundery';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';

@@ -42,6 +42,7 @@ module.exports = {
         'no-undef': 'warn',
         'max-len': ['error', { ignoreComments: true, code: 120 }],
         'no-tabs': 'off',
+        'comma-dangle': 'off'
     },
     globals: {
         __IS_DEV__: true,
